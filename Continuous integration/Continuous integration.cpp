@@ -11,7 +11,7 @@ double fact(double n) {
     return (n == 0) || (n == 1) ? 1 : n * fact(n - 1);
 }
 
-double taylor_cos(double x) {
+double Ataylor_cos(double x) {
     double result = 0;
     for (int i = 0; i < 4; i++) {
         result += pow(-1, i) * pow(x, i * 2) / fact(i * 2);
@@ -26,7 +26,7 @@ int main()
     std::cout << "enter degrees: ";
     std::cin >> degrees;
     rads = (M_PI / 180)* degrees;
-    std::cout << "cos " << degrees << " = " << taylor_cos(rads);
+    std::cout << "cos " << degrees << " = " << Ataylor_cos(rads);
 
 }
 
