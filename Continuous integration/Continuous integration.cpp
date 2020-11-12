@@ -1,11 +1,33 @@
 // Continuous integration.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#define _USE_MATH_DEFINES
+
+#include<math.h>
+#include <numbers>
 #include <iostream>
+
+double fact(double n) {
+    return (n == 0) || (n == 1) ? 1 : n * fact(n - 1);
+}
+
+double taylor_cos(double x) {
+    double result = 0;
+    for (int i = 0; i < 4; i++) {
+        result += pow(-1, i) * pow(x, i * 2) / fact(i * 2);
+    }
+    return result;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double degrees, rads;
+
+    std::cout << "enter degrees: ";
+    std::cin >> degrees;
+    rads = (M_PI / 180)* degrees;
+    std::cout << "cos " << degrees << " = " << taylor_cos(rads);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
